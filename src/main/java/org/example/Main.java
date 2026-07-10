@@ -15,6 +15,7 @@ public class Main {
             Class.forName("com.mysql.cj.jdbc.Driver"); //Step-1
             DriverManager.getConnection(url,user,password); //Step - 2
             System.out.println("Mereko kuch nei aaa raha hey");
+            System.out.println("Step 5");
 
 
 
