@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class studentController extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
         int id = Integer.parseInt(req.getParameter("id"));
@@ -31,11 +31,14 @@ public class studentController extends HttpServlet {
         int redg = Integer.parseInt(req.getParameter("redgno"));
         System.out.println(redg);
 
+        String password = req.getParameter("password");
+        System.out.println(password);
+
         studentservice sts = new studentservice();
 
 
         try {
-            if (sts.register(id, name, email, redg)) {
+            if (sts.register(id, name, email, redg, password)) {
                 resp.sendRedirect("login.html");
             }
         } catch (SQLException e) {
